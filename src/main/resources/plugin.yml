@@ -1,0 +1,4 @@
+name: ${pom.artifactId}
+version: ${pom.version}
+author: NoSQL
+main: io.github.nosequel.practice.PracticePlugin

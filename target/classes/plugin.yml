@@ -1,0 +1,4 @@
+name: Practice
+version: 1.0-SNAPSHOT
+author: NoSQL
+main: io.github.nosequel.practice.PracticePlugin
