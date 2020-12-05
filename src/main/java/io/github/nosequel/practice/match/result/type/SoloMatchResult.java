@@ -1,5 +1,6 @@
 package io.github.nosequel.practice.match.result.type;
 
+import io.github.nosequel.practice.kit.Kit;
 import io.github.nosequel.practice.match.result.ItemElement;
 import io.github.nosequel.practice.match.result.MatchResult;
 import io.github.nosequel.practice.match.type.SoloMatch;
@@ -20,6 +21,9 @@ public class SoloMatchResult implements MatchResult<Player> {
     private final Map<Player, Integer> hits = new HashMap<>();
     private final Map<Player, List<ItemElement>> inventories = new HashMap<>();
 
+    private final UUID matchUniqueId = UUID.randomUUID();
+    private final Kit kit;
+
     private long startEpoch;
     private long endEpoch;
 
@@ -33,6 +37,7 @@ public class SoloMatchResult implements MatchResult<Player> {
      */
     public SoloMatchResult(SoloMatch soloMatch) {
         this.soloMatch = soloMatch;
+        this.kit = soloMatch.getKit();
     }
 
     @Override

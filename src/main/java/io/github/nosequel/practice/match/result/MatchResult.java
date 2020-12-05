@@ -1,9 +1,11 @@
 package io.github.nosequel.practice.match.result;
 
+import io.github.nosequel.practice.kit.Kit;
 import org.bukkit.entity.Player;
 
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 public interface MatchResult<T> {
 
@@ -108,5 +110,19 @@ public interface MatchResult<T> {
      * @return whether hes in the result
      */
     boolean hasPlayer(Player player);
+
+    /**
+     * Get the unique identifier of a match result
+     *
+     * @return the unique identifier
+     */
+    UUID getMatchUniqueId();
+
+    /**
+     * Get the kit of the match result
+     *
+     * @return the kit
+     */
+    Kit getKit();
 
 }

@@ -18,4 +18,12 @@ public class TimeUtil {
         return new SimpleDateFormat("mm:ss").format(new Date(epoch));
     }
 
+    /**
+     * Format an epoch date to a human readable date
+     *
+     * @param epoch the epoch date to format
+     * @return the formatted date
+     */
+    public String formatToDate(long epoch) { return new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date(epoch)); }
+
 }

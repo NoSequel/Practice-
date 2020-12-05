@@ -13,6 +13,7 @@ import io.github.nosequel.practice.listener.MatchListener;
 import io.github.nosequel.practice.listener.PlayerListener;
 import io.github.nosequel.practice.listener.QueueListener;
 import io.github.nosequel.practice.match.MatchHandler;
+import io.github.nosequel.practice.match.command.MatchHistoryCommand;
 import io.github.nosequel.practice.player.ProfileHandler;
 import io.github.nosequel.practice.queue.QueueHandler;
 import io.github.nosequel.practice.scoreboard.ScoreboardImpl;
@@ -52,7 +53,7 @@ public class PracticePlugin extends JavaPlugin {
         this.handler.load();
 
         // setup command controller
-        this.handler.register(new CommandController("practice").registerCommand(new ArenaCommand(), new ArenaTemplateCommand(), new KitCommand()));
+        this.handler.register(new CommandController("practice").registerCommand(new ArenaCommand(), new ArenaTemplateCommand(), new KitCommand(), new MatchHistoryCommand()));
 
         // setup loadout handler
         this.handler.register(new LoadoutHandler());
