@@ -8,7 +8,7 @@ public class MatchHistoryCommand {
 
     @Command(label = "matchhistory", aliases = {"matchhist"})
     public void execute(Player player) {
-        new MatchHistoryMenu(player).updateMenu();
+        new MatchHistoryMenu(player, null).updateMenu();
     }
 
 }

@@ -56,8 +56,8 @@ public class ArenaTemplateMenu extends PaginatedMenu {
                                 Color.SECONDARY_COLOR + "Usable: " + template.isUsable(),
                                 "",
                                 template.isBuilt()
-                                        ? Color.SECONDARY_COLOR + "Click here to destroy this template."
-                                        : Color.SECONDARY_COLOR + "Click here to build this template."
+                                        ? Color.FOOTER_COLOR + "Click here to destroy this template."
+                                        : Color.FOOTER_COLOR + "Click here to build this template."
                         )
                         .setAction((type, player) -> {
                             if (template.isUsable() && template.isBuilt()) {

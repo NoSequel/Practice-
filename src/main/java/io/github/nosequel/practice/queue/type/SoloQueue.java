@@ -4,7 +4,7 @@ import io.github.nosequel.practice.PracticePlugin;
 import io.github.nosequel.practice.arena.Arena;
 import io.github.nosequel.practice.arena.ArenaHandler;
 import io.github.nosequel.practice.kit.Kit;
-import io.github.nosequel.practice.match.type.SoloMatch;
+import io.github.nosequel.practice.match.type.solo.SoloMatch;
 import io.github.nosequel.practice.queue.Queue;
 import io.github.nosequel.practice.queue.QueueEntry;
 import io.github.nosequel.practice.util.Color;

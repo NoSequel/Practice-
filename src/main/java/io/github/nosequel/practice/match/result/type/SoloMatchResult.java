@@ -3,7 +3,8 @@ package io.github.nosequel.practice.match.result.type;
 import io.github.nosequel.practice.kit.Kit;
 import io.github.nosequel.practice.match.result.ItemElement;
 import io.github.nosequel.practice.match.result.MatchResult;
-import io.github.nosequel.practice.match.type.SoloMatch;
+import io.github.nosequel.practice.match.type.solo.PlayerMatchParticipant;
+import io.github.nosequel.practice.match.type.solo.SoloMatch;
 import io.github.nosequel.practice.util.PlayerUtil;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,20 +16,19 @@ import java.util.stream.Collectors;
 
 @Getter
 @Setter
-public class SoloMatchResult implements MatchResult<Player> {
+public class SoloMatchResult implements MatchResult<PlayerMatchParticipant> {
 
     private final SoloMatch soloMatch;
     private final Map<Player, Integer> hits = new HashMap<>();
     private final Map<Player, List<ItemElement>> inventories = new HashMap<>();
 
     private final UUID matchUniqueId = UUID.randomUUID();
-    private final Kit kit;
 
     private long startEpoch;
     private long endEpoch;
 
-    private Player winner;
-    private Player loser;
+    private PlayerMatchParticipant winner;
+    private PlayerMatchParticipant loser;
 
     /**
      * Constructor for making a new result for a {@link SoloMatch}
@@ -37,13 +37,12 @@ public class SoloMatchResult implements MatchResult<Player> {
      */
     public SoloMatchResult(SoloMatch soloMatch) {
         this.soloMatch = soloMatch;
-        this.kit = soloMatch.getKit();
     }
 
     @Override
     public void handleDeath(Player player) {
-        this.winner = this.soloMatch.getOpponent(player);
-        this.loser = player;
+        this.winner = this.soloMatch.getOpponent(this.soloMatch.getParticipant(player));
+        this.loser = this.soloMatch.getParticipant(player);
         this.endEpoch = System.currentTimeMillis();
         this.soloMatch.handleEnd();
 
@@ -81,6 +80,16 @@ public class SoloMatchResult implements MatchResult<Player> {
 
     @Override
     public boolean hasPlayer(Player player) {
-        return this.soloMatch.getPlayers().contains(player);
+        return this.soloMatch.getPlayers().stream().anyMatch(participant -> participant.equals(player));
+    }
+
+    @Override
+    public boolean hasPlayer(UUID uuid) {
+        return this.soloMatch.getPlayers().stream().anyMatch(participant -> participant.getUniqueId().equals(uuid));
+    }
+
+    @Override
+    public Kit getKit() {
+        return this.soloMatch.getKit();
     }
 }

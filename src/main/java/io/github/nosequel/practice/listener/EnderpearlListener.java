@@ -38,7 +38,7 @@ public class EnderpearlListener implements Listener {
         if (profile != null && player.getItemInHand() != null && (event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK))) {
             if(player.getItemInHand().getType().equals(Material.ENDER_PEARL)) {
                 if (profile.getLastEnderpearlThrow() - System.currentTimeMillis() > 0) {
-                    player.sendMessage(ChatColor.RED + "You are still on an enderpearl cooldown.");
+                    player.sendMessage(ChatColor.RED + "You are still on an enderpearl cooldown");
                     event.setCancelled(true);
                 } else {
                     profile.setLastEnderpearlThrow(System.currentTimeMillis() + 16000);

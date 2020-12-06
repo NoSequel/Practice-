@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 import java.util.List;
 import java.util.function.Consumer;
 
-public interface Match<T, M extends MatchResult<?>> extends Scoreboardable {
+public interface Match<T extends MatchParticipant<?>, M extends MatchResult<?>> extends Scoreboardable {
 
     /**
      * Get all players inside of a match
@@ -25,6 +25,14 @@ public interface Match<T, M extends MatchResult<?>> extends Scoreboardable {
      * @return the opponent
      */
     T getOpponent(T toCheck);
+
+    /**
+     * Get the match participant object from a player
+     *
+     * @param player the player
+     * @return the object
+     */
+    MatchParticipant<?> getParticipant(Player player);
 
     /**
      * Get the result of the match

@@ -1,13 +1,14 @@
 package io.github.nosequel.practice.match.result;
 
 import io.github.nosequel.practice.kit.Kit;
+import io.github.nosequel.practice.match.MatchParticipant;
 import org.bukkit.entity.Player;
 
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-public interface MatchResult<T> {
+public interface MatchResult<T extends MatchParticipant<?>> {
 
     /**
      * Get a winner of a match
@@ -107,9 +108,17 @@ public interface MatchResult<T> {
      * Check whether a player is in a match result
      *
      * @param player the player
-     * @return whether hes in the result
+     * @return whether they in the result
      */
     boolean hasPlayer(Player player);
+
+    /**
+     * Check whether a player is in a match result
+     *
+     * @param uuid the player
+     * @return whether they are in the result
+     */
+    boolean hasPlayer(UUID uuid);
 
     /**
      * Get the unique identifier of a match result

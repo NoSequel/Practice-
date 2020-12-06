@@ -68,7 +68,19 @@ public class MatchHandler implements Handler {
      * @param player the player
      * @return the results
      */
-    public List<? super MatchResult<?>> filterResultsByPlayer(Player player) {
+    public List<? extends MatchResult<?>> filterResultsByPlayer(Player player) {
+        return this.matchHistory.stream()
+                .filter(result -> result.hasPlayer(player))
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Filter all results by a player
+     *
+     * @param player the player
+     * @return the results
+     */
+    public List<? extends MatchResult<?>> filterResultsByPlayer(UUID player) {
         return this.matchHistory.stream()
                 .filter(result -> result.hasPlayer(player))
                 .collect(Collectors.toList());

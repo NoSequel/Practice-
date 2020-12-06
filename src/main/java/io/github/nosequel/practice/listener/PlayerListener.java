@@ -38,8 +38,11 @@ public class PlayerListener implements Listener {
 
     @EventHandler
     public void onPing(ServerListPingEvent event) {
-        event.setMotd(ChatColor.GREEN + ChatColor.BOLD.toString() + "Xingqiu" + ChatColor.GRAY + ChatColor.BOLD.toString() + " ｜ " + ChatColor.WHITE + "Development" +
-                "\n" + ChatColor.WHITE + "This server is whitelisted");
+        event.setMotd(ChatColor.DARK_AQUA + "Xingqiu Practice "
+                + ChatColor.GRAY + "(" + ChatColor.AQUA + "EU" + ChatColor.GRAY + ") "
+                + ChatColor.BOLD.toString() + " ｜ "
+                + ChatColor.AQUA + "Whitelisted\n" +
+                ChatColor.GRAY + "Follow progress at " + ChatColor.AQUA + "https://discord.gg/KcDjDhta");
     }
 
     @EventHandler

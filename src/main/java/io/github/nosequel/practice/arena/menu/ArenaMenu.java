@@ -34,7 +34,7 @@ public class ArenaMenu extends PaginatedMenu {
                                 Color.SECONDARY_COLOR + "Templates: " + arena.getTemplates().size(),
                                 Color.SECONDARY_COLOR + "Usable: " + arena.isUsable(),
                                 "",
-                                Color.SECONDARY_COLOR + "Click here to view templates"
+                                Color.FOOTER_COLOR + "Click here to view templates"
                         )
                         .setAction((type, player) -> new ArenaTemplateMenu(player, arena).updateMenu())
                 ).collect(Collectors.toList());
